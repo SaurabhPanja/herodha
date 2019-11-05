@@ -75,7 +75,7 @@ const drawChart = (chartData, companyCode) => {
 const get_current_price = (companyCode) => {
     return () => {
         let host = window.location.host;
-        fetch(`https://${host}/get_current_price/${companyCode}`)
+        fetch(`http://${host}/get_current_price/${companyCode}`)
             .then(res => res.json())
             .then(result => result['stock_data'])
             .then(stockData => {
@@ -118,7 +118,7 @@ const get_current_price = (companyCode) => {
 const addToCart = (companyCode) =>{
     return ()=>{
         let host = window.location.host;
-        fetch(`https://${host}/add_to_cart/`,{
+        fetch(`http://${host}/add_to_cart/`,{
             method : 'POST',
             body : JSON.stringify(companyCode)
         })
@@ -129,7 +129,7 @@ const addToCart = (companyCode) =>{
 const removeFromCart = (companyCode) =>{
     return ()=>{
         let host = window.location.host
-        fetch(`https://${host}/remove_from_cart/`,{
+        fetch(`http://${host}/remove_from_cart/`,{
             method : 'POST',
             body : JSON.stringify(companyCode)
         })

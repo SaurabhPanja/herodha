@@ -46,7 +46,7 @@ async function getCurrentPriceAndProfit (companyCode, currentPriceDom, profitDom
 const removeFromCart = (companyCode) =>{
     return ()=>{
         let host = window.location.host
-        fetch(`https://${host}/remove_from_cart/`,{
+        fetch(`http://${host}/remove_from_cart/`,{
             method : 'POST',
             body : JSON.stringify(companyCode)
         })
