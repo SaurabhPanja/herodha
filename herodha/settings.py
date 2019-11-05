@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['herodha.herokuapp.com',]
 
@@ -165,16 +165,16 @@ LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-CACHES = {
-   'default': {
-       'BACKEND': 'django_redis.cache.RedisCache',
-       'LOCATION': 'redis://127.0.0.1:6379/',
-       'OPTIONS': {
-           'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-       }
-   }
-}
-CACHE_TTL = 60 * 15
+# CACHES = {
+#    'default': {
+#        'BACKEND': 'django_redis.cache.RedisCache',
+#        'LOCATION': 'redis://127.0.0.1:6379/',
+#        'OPTIONS': {
+#            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+#        }
+#    }
+# }
+# CACHE_TTL = 60 * 15
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
