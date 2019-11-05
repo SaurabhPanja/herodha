@@ -12,7 +12,7 @@ window.onload = () =>{
 const removeFromCart = (companyCode) =>{
     return ()=>{
         let host = window.location.host
-        fetch(`http://${host}/remove_from_cart/`,{
+        fetch(`https://${host}/remove_from_cart/`,{
             method : 'POST',
             body : JSON.stringify(companyCode)
         })

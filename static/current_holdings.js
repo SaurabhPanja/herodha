@@ -1,5 +1,5 @@
 window.onload = () =>{
-    console.log("current_holdings.js")
+    // console.log("current_holdings.js")
     let removeFromCartDom = document.querySelectorAll('.remove-from-cart');
     let bookmarkCodeDom = document.querySelectorAll('.bookmark-symbol');
     
@@ -11,7 +11,7 @@ window.onload = () =>{
 }
 
 const getAllCurrentPriceOnPage = () =>{
-    console.log("gettting Current price")
+    // console.log("gettting Current price")
     let companySymbols = document.querySelectorAll('#company-code'),
         currentPrices = document.querySelectorAll('#current-price'),
         profit = document.querySelectorAll('#profit'),
@@ -46,7 +46,7 @@ async function getCurrentPriceAndProfit (companyCode, currentPriceDom, profitDom
 const removeFromCart = (companyCode) =>{
     return ()=>{
         let host = window.location.host
-        fetch(`http://${host}/remove_from_cart/`,{
+        fetch(`https://${host}/remove_from_cart/`,{
             method : 'POST',
             body : JSON.stringify(companyCode)
         })
