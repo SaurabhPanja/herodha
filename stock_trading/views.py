@@ -31,17 +31,17 @@ from django.views.decorators.cache import cache_page
 
 
 #Market Action
-# nifty_50 = nse.get_index_quote('nifty 50')
-# nifty_bank = nse.get_index_quote('nifty bank')
-# nifty_pharma = nse.get_index_quote('nifty pharma')
-# nifty_it = nse.get_index_quote('nifty it')
-# nifty_auto = nse.get_index_quote('nifty auto')
+nifty_50 = nse.get_index_quote('nifty 50')
+nifty_bank = nse.get_index_quote('nifty bank')
+nifty_pharma = nse.get_index_quote('nifty pharma')
+nifty_it = nse.get_index_quote('nifty it')
+nifty_auto = nse.get_index_quote('nifty auto')
 
 #Top Gainers
-# top_gainers = nse.get_top_gainers()
+top_gainers = nse.get_top_gainers()
 
 #Top Losers
-# top_losers = nse.get_top_losers()
+top_losers = nse.get_top_losers()
 
 
 # Create your views here.
@@ -84,23 +84,22 @@ class SignUpView(CreateView):
 
 def index(request):
     # #Market Action
-    nifty_50 = nse.get_index_quote('nifty 50')
-    nifty_bank = nse.get_index_quote('nifty bank')
-    nifty_pharma = nse.get_index_quote('nifty pharma')
-    nifty_it = nse.get_index_quote('nifty it')
-    nifty_auto = nse.get_index_quote('nifty auto')
+    # nifty_50 = nse.get_index_quote('nifty 50')
+    # nifty_bank = nse.get_index_quote('nifty bank')
+    # nifty_pharma = nse.get_index_quote('nifty pharma')
+    # nifty_it = nse.get_index_quote('nifty it')
+    # nifty_auto = nse.get_index_quote('nifty auto')
 
     # #Top Gainers
-    top_gainers = nse.get_top_gainers()
+    # top_gainers = nse.get_top_gainers()
 
     # #Top Losers
-    top_losers = nse.get_top_losers()
+    # top_losers = nse.get_top_losers()
 
     return render(request, 'index.html', {'nifty_50':nifty_50, \
         'nifty_auto':nifty_auto, 'nifty_bank':nifty_bank, \
         'nifty_it':nifty_it, 'nifty_pharma':nifty_pharma, \
         'top_gainers':top_gainers, 'top_losers':top_losers})
-    # return HttpResponse("<h1>All good buddy</h1>")
 
 
 def search_stocks(request):
