@@ -4,14 +4,16 @@ window.onload = () => {
         currentTimeDom = document.querySelector("#current-time");
     let addToCartDom = document.querySelector('#add-to-cart');
 
-    if(addToCartDom.innerText == 'Add'){
-        addToCartDom.addEventListener('click', addToCart(companyCode));
+    if (addToCart) {
+        if (addToCartDom.innerText == 'Add') {
+            addToCartDom.addEventListener('click', addToCart(companyCode));
+        }
+        else if (addToCartDom.innerText == 'Remove') {
+            addToCartDom.addEventListener('click', removeFromCart(companyCode));
+        }
+
     }
-    else if(addToCartDom.innerText == 'Remove'){
-        addToCartDom.addEventListener('click', removeFromCart(companyCode));
-    }
-   
-    
+
     if (currentTimeDom) {
         let month = new Array();
         month[0] = "Jan";
@@ -43,7 +45,7 @@ const getChart = (companyCode) => {
             let xChartLabel = document.querySelector('.highcharts-xaxis-labels');
             xChartLabel.style.display = "none"
         })
-        .catch(()=>console.log("chart nahi hai iska bhai"))
+        .catch(() => console.log("chart nahi hai iska bhai"))
 }
 
 const drawChart = (chartData, companyCode) => {
@@ -93,7 +95,7 @@ const get_current_price = (companyCode) => {
                 if (stockDataChangeValue >= 0) {
                     color = "#00BB6E"
                     icon = "<i class='fas fa-sort-up'></i>"
-                }else{
+                } else {
                     color = "#F34459";
                     icon = "<i class='fas fa-sort-down'></i>"
 
@@ -115,25 +117,25 @@ const get_current_price = (companyCode) => {
 }
 
 
-const addToCart = (companyCode) =>{
-    return ()=>{
+const addToCart = (companyCode) => {
+    return () => {
         let host = window.location.host;
-        fetch(`http://${host}/add_to_cart/`,{
-            method : 'POST',
-            body : JSON.stringify(companyCode)
+        fetch(`http://${host}/add_to_cart/`, {
+            method: 'POST',
+            body: JSON.stringify(companyCode)
         })
-        .then(res=>res.status)
+            .then(res => res.status)
     }
 }
 
-const removeFromCart = (companyCode) =>{
-    return ()=>{
+const removeFromCart = (companyCode) => {
+    return () => {
         let host = window.location.host
-        fetch(`http://${host}/remove_from_cart/`,{
-            method : 'POST',
-            body : JSON.stringify(companyCode)
+        fetch(`http://${host}/remove_from_cart/`, {
+            method: 'POST',
+            body: JSON.stringify(companyCode)
         })
-        .then(res=>res.status)
-        .catch(err => console.log("Abey err dekh " + err))
+            .then(res => res.status)
+            .catch(err => console.log("Abey err dekh " + err))
     }
 }
