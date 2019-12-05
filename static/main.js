@@ -4,7 +4,7 @@ window.onload = () => {
         currentTimeDom = document.querySelector("#current-time");
     let addToCartDom = document.querySelector('#add-to-cart');
 
-    if (addToCart) {
+    if (addToCartDom) {
         if (addToCartDom.innerText == 'Add') {
             addToCartDom.addEventListener('click', addToCart(companyCode));
         }

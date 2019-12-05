@@ -168,12 +168,14 @@
           $('input[name="total"]').val(total)
         })
         let button = document.getElementById("add-to-cart");
+        if(button){    
         button.addEventListener('click', ()=>{
             if(button.innerText == 'Add')
                 button.innerText = 'Remove'
             else
                 button.innerText = 'Add'
         })
+        }
       </script>
       {% load static %}
       <script type="text/javascript" src="{% static 'main.js'%}"></script>
